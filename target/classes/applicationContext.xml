@@ -12,7 +12,7 @@
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>jdbc.properties</value>
+			<value>WEB-INF/jdbc.properties</value>
 		</property>
 	</bean>
 
@@ -42,5 +42,9 @@
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+	<bean id="usuarioMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="net.tecgurus.agenda.mappers.UsuarioMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 	
 </beans>

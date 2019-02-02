@@ -19,10 +19,10 @@ public class ContactoServiceTest {
 	@Autowired
 	ContactoService contactoService;
 	
-	@Test
+	/*@Test
 	public void buscar() {
 		contactoService.buscar(null,1).forEach(System.out::println);
-	}
+	}*/
 	
 	
 	@Test

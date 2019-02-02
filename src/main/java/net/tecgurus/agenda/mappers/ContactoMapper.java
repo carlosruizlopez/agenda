@@ -17,7 +17,7 @@ public interface ContactoMapper {
 	
 	public List<Contacto> buscar(@Param("busqueda") String busqueda, @Param("id")Integer id);
 	
-	public Long buscarCount(@Param("busqueda") String busqueda,Integer id);
+	public Long buscarCount(@Param("busqueda") String busqueda,@Param("id")Integer id);
 	
 	public Contacto traerPorid(Integer idUsuario,Integer idContacto);
 	

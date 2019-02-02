@@ -1,6 +1,8 @@
 package net.tecgurus.agenda.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +20,22 @@ public class ContactoService {
 		contactoDao.insertarContacto(contacto);
 	}
 	
-	public List<Contacto> buscar(String busqueda, Integer id){
-		return contactoDao.buscar(busqueda, id);
+	public Map<String,Object> buscar(String busqueda, Integer id, Integer pagina, Integer limite){
+		//long elementos = contactoDao.buscarCount(busqueda, id);
+		double totalPaginas = 1;//(double)elementos/(double)limite;
+		
+		if( totalPaginas%1 !=0) {
+			totalPaginas++;
+		}
+		
+		//Math.ceil(totalPaginas);
+		
+		Map<String, Object> respuesta=new HashMap<>();
+		respuesta.put("Paginas", (int)totalPaginas);
+		
+		int offset = (pagina-1)*limite;
+		
+		respuesta.put("contactos", contactoDao.buscar(id, busqueda, offset, limite));
+		return respuesta;
 	}
 }
