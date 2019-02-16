@@ -7,15 +7,15 @@
  	<select id='buscar' parameterType='String' resultType="Contacto">
  		SELECT * FROM contactos WHERE id_usuario = #{id}
  		<if test="busqueda != null">
- 		<bind name="buscarCorregido" value="'%'+busqueda+'%'"/>
+ 			<bind name="buscarCorregido" value="'%'+busqueda+'%'"/>
  			AND nombre LIKE #{buscarCorregido} OR apellido LIKE #{buscarCorregido}
  		</if>
  	</select>
  
- 	<select id='buscarCount' parameterType='long' resultType="Contacto">
+ 	<select id='buscarCount' parameterType='int' resultType="Long">
  		SELECT COUNT(*) FROM contactos WHERE id_usuario = #{id}
  		<if test="busqueda != null">
- 		<bind name="buscarCorregido" value="'%'+busqueda+'%'"/>
+ 			<bind name="buscarCorregido" value="'%'+busqueda+'%'"/>
  			AND nombre LIKE #{buscarCorregido} OR apellido LIKE #{buscarCorregido}
  		</if>
  	</select>

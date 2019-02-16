@@ -22,6 +22,10 @@ public class ContactoDao {
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 	
+	public void saveImage( String imagePath,  Integer id, Integer idUser) {
+		contactoMapper.saveImage(imagePath, id, idUser);
+	}
+	
 	public void insertarContacto(Contacto contacto) {
 		contactoMapper.insertarContacto(contacto);
 	}
@@ -41,5 +45,18 @@ public class ContactoDao {
 	public Long buscarCount(String busqueda, Integer id){
 		return contactoMapper.buscarCount(busqueda, id);
 	}
+	
+	public Contacto traerPorid(Integer idUsuario,Integer idContacto) {
+		return contactoMapper.traerPorid(idUsuario, idContacto);
+	}
+	
+	public void eliminarPorId(Integer idUsuario,Integer idContacto) {
+		contactoMapper.eliminarPorId(idUsuario, idContacto);
+	}
+	
+	public void actualizarContacto(Contacto contacto) {
+		contactoMapper.actualizarContacto(contacto);
+	}
+	
 	
 }
